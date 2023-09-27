@@ -19,3 +19,20 @@ Develop something (script, npm module, python package, docker container, C++ exe
 - [ ] Install [ElectrOS CLI](https://pypi.org/project/elemento-cli)
 - [ ] Launch the daemons and verify that ElectrOS is running properly
 
+## Additional points
+- someone in the team wears a *ffa600* T-shirt
+- deliver a containarised solution
+- post a picture of your team on LinkedIn
+- post a picture of your team on Instagram
+- post a picture of your team on X
+- deliver a solution written in C++
+- deliver an AI based solution
+
+# penalties
+- crash the WiFi
+- deliver a solution written in Flutter
+- ask to chatGPT or any LLM
+- ask on public forums
+- copy code from other teams
+- use blockchain in your code
+
