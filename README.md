@@ -1,5 +1,3 @@
-# hackathon2023
-
 # Ehy Elemento give me a VM
 
 # Aim of the hackaton
@@ -43,3 +41,5 @@ Develop something (script, npm module, python package, docker container, C++ exe
 # License
 The code developed in this hackaton belongs to Elemento s.r.l. add your name in the license for a correct acknoledgment of your work
 
+# Help
+Do you need help? [Open an issue on us](https://github.com/Elemento-Modular-Cloud/helpcenter)
