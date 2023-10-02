@@ -40,3 +40,6 @@ Develop something (script, npm module, python package, docker container, C++ exe
 - copy code from other teams
 - use blockchain in your code
 
+# License
+The code developed in this hackaton belongs to Elemento s.r.l. add your name in the license for a correct acknoledgment of your work
+
