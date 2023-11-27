@@ -20,7 +20,9 @@ Develop something (script, npm module, python package, docker container, C++ exe
 - [ ] Install [ElectrOS CLI](https://pypi.org/project/elemento-cli)
 - [ ] Launch the daemons and verify that ElectrOS is running properly
 
-# Rules
+# Tracks
+
+## IoT track
 
 Deploy a VM **using Elemento technology** and your **voice**. Deliver a code able to call a REST API as written in the specification. The code should be triggered by voice and managed through Elemento daemons.
 
@@ -29,6 +31,16 @@ Deploy a VM **using Elemento technology** and your **voice**. Deliver a code abl
 - Cortana
 - Siri
 - Custom iOS/Android app with voice recognition
+
+## AI track
+
+- train a model to create new mesOS translators
+- train a model to create [custom configs](https://github.com/Elemento-Modular-Cloud/electros)
+
+## LLM track
+
+- train a llm to create and manage VMs using elemento
+
 
 ## API
 
@@ -107,10 +119,16 @@ Accept: application/json
 
 
 # Prizes
-1. AtomOS monthly license per each member of the team
-2. Your team will be mentioned by Elemento on LinkedIn
-3. Lego set of an Orbital
-4. Your team will become part of the history of Elemento 
+1. Woman in NASA lego set
+2. Galileo lego set 
+3. Space Shuttle lego set
+
+## Spcial prizes
+- Team that uses more data
+- Team that uses more compute power
+- Team with the most secure solution
+- Team with more cables on table
+- Team with the more efficient solution
 
 
 # License
