@@ -29,12 +29,12 @@ Deploy a VM **using Elemento technology** and your **voice**. Deliver a code abl
 - Alexa
 - Cortana
 - Siri
-- Custom iOS/Android app with voice recognition
 
 ## AI track
 
 - train a model to create new mesOS translators
 - train a model to create [custom configs](https://github.com/Elemento-Modular-Cloud/electros)
+- train a model to infer configs from Software specs found on the internet
 
 ## LLM track
 
@@ -97,30 +97,44 @@ Accept: application/json
 }
 ```
 
+# Program
 
+## 0900
 
-## Additional points
+Welcome, setup and start coding!
+
+## 1200
+
+Lunch
+
+## 1700
+
+Presentations of teams' work
+
+## 1800
+
+Winner announcements and awardings
+
+# Prizes
+1. Woman in NASA lego set
+2. Galileo lego set 
+3. Space Shuttle lego set
+
+## Special mentions
 - someone in the team wears a *ffa600* T-shirt
 - deliver a containarised solution
 - post a picture of your team on LinkedIn
 - post a picture of your team on Instagram
 - post a picture of your team on X
 - deliver a solution written in C++
-- deliver an AI based solution
 
-# penalties
+## penalties
 - crash the WiFi
 - deliver a solution written in Flutter
 - ask to chatGPT or any LLM
 - ask on public forums
 - copy code from other teams
 - use blockchain in your code
-
-
-# Prizes
-1. Woman in NASA lego set
-2. Galileo lego set 
-3. Space Shuttle lego set
 
 ## Spcial prizes
 - Team that uses more data
@@ -129,6 +143,8 @@ Accept: application/json
 - Team with more cables on table
 - Team with the more efficient solution
 
+# Deliver
+Commmit your code to [Elemento-Modular-Cloud/hackathon2023](https://github.com/Elemento-Modular-Cloud/hackathon2023)
 
 # License
 The code developed in this hackaton belongs to Elemento s.r.l. add your name in the license for a correct acknoledgment of your work
