@@ -94,14 +94,6 @@ Accept: application/json
 2. Galileo lego set 
 3. Space Shuttle lego set
 
-## Special mentions
-- someone in the team wears a *ffa600* T-shirt
-- deliver a containarised solution
-- post a picture of your team on LinkedIn
-- post a picture of your team on Instagram
-- post a picture of your team on X
-- deliver a solution written in C++
-
 ## penalties
 - crash the WiFi
 - deliver a solution written in Flutter
@@ -117,9 +109,19 @@ Accept: application/json
 - Team with the most secure solution
 - Team with more cables on table
 - Team with the more efficient solution
-- Team which used less energy during the day
-- Team which used the most exotic hardware
+- Team with more yellow accessories
 - Team who delivered a solution written in C++
+- Team which used less energy during the day
+- Team which uses more AI
+- Team whose presentation has best analyses
+
+
+### Scores
+
+https://keepthescore.com/board/gxkysmbpwksle/
+
+Vote https://elemento.typeform.com/to/b98eqeHS?typeform-source=admin.typeform.com
+
 
 # Deliver
 Commmit your code to [Elemento-Modular-Cloud/hackathon2023](https://github.com/Elemento-Modular-Cloud/hackathon2023)
