@@ -7,15 +7,7 @@ Develop something (script, npm module, python package, docker container, C++ exe
 # Preparation
 
 - [ ] [Create an account on Elemento](https://www.elemento.cloud/forms/sign-in)
-- [ ] Get Elemento Daemons 
-    - Windows: https://repo.elemento.cloud/app/Elemento_daemons.zip
-    - Mac ARM: https://repo.elemento.cloud/app/Elemento_daemons.dmg
-    - Docker container (Linux and Mac Intel) https://github.com/Elemento-Modular-Cloud/electros
-- [ ] Install ElectrOS 
-    - Windows: https://repo.elemento.cloud/app/Elemento_Cloud_App.exe
-    - Mac ARM: https://repo.elemento.cloud/app/Elemento_Cloud_App.dmg
-    - Mac Intel:https://repo.elemento.cloud/app/Elemento_Cloud_App_intel.dmg
-    - Linux.https://repo.elemento.cloud/app/Elemento_Cloud_App.AppImage
+- [ ] Install ElectrOS [https://www.elemento.cloud/products/electros](https://www.elemento.cloud/products/electros)
 - [ ] Install [ElectrOS CLI](https://pypi.org/project/elemento-cli)
 - [ ] Launch the daemons and verify that ElectrOS is running properly
 
@@ -97,24 +89,6 @@ Accept: application/json
 }
 ```
 
-# Program
-
-## 0900
-
-Welcome, setup and start coding!
-
-## 1200
-
-Lunch
-
-## 1700
-
-Presentations of teams' work
-
-## 1800
-
-Winner announcements and awardings
-
 # Prizes
 1. Woman in NASA lego set
 2. Galileo lego set 
@@ -137,11 +111,15 @@ Winner announcements and awardings
 - use blockchain in your code
 
 ## Spcial prizes
+
 - Team that uses more data
 - Team that uses more compute power
 - Team with the most secure solution
 - Team with more cables on table
 - Team with the more efficient solution
+- Team which used less energy during the day
+- Team which used the most exotic hardware
+- Team who delivered a solution written in C++
 
 # Deliver
 Commmit your code to [Elemento-Modular-Cloud/hackathon2023](https://github.com/Elemento-Modular-Cloud/hackathon2023)

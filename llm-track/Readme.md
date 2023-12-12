@@ -10,7 +10,7 @@ Train some Large Language Model to interact with Elemento API.
 
 You can chose one of the following subtracks
 
-- train a llm to create and manage VMs using elemento
+- train a llm to create and manage VMs using Elemento
 
 ## Hints
 
