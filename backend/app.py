@@ -1,9 +1,12 @@
 from flask import Flask, request, jsonify
 import subprocess
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
-@app.route('/run-script', methods=['GET'])
+
+@app.route('/run-script', methods=['POST'])
 def run_script():
     try:
         program_name = request.args.get('program_name')

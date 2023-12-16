@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
+import React, { useState } from 'react';
+import API from './API/api.js';
+
+// UI
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -28,13 +28,16 @@ const theme = createTheme({
 });
 
 export default function SignInSide() {
+  const [loading, setLoading] = useState(null);   // 0: loading, 1: success
+  const [error, setError] = useState(null);       // 0: no error, 1: error
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const inputValue = data.get('input');
+    console.log('Input Value:', inputValue);
+
+    API.getScraper(inputValue)
   };
 
   return (
@@ -47,8 +50,6 @@ export default function SignInSide() {
           elevation={6} 
           square
           sx={{
-            height: '100vh',
-            width: '100vw',
             backgroundImage: 'url(back.jpg)', 
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -68,25 +69,26 @@ export default function SignInSide() {
             <Box
               component="img"
               sx={{
-                height: 250,
-                width: 250,
-                maxHeight: { xs: 250 },
-                maxWidth: { xs: 250 },
+                height: 150,
+                width: 150,
+                maxHeight: { xs: 150 },
+                maxWidth: { xs: 150 },
               }}
-              alt="The house from the offer."
               src="elemento_logo.png"
             />
-            <Typography component="h1" variant="h3">
+            <Typography component="h1" variant="h3" sx={{margin: "20px"}}>
               Elemento magic creator
             </Typography>
 
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <Typography component="h1" variant="h6">
+                Inserisci il nome o il link del servizio che vuoi creare in Elemento
+              </Typography>
               <TextField
                 margin="normal"
-                required
                 fullWidth
                 id="input"
-                label="Inserisci il nome o il link del servizio che vuoi creare in Elemento"
+                label="Scrivi qua"
                 name="input"
                 autoFocus
                 InputLabelProps={{
@@ -95,51 +97,65 @@ export default function SignInSide() {
                 inputProps={{
                   style: { color: 'white' }, 
                   color: 'white',
+                  
                 }}
               />
 
-              {/* TO DO: toggle which one */}
-              <Alert variant="filled" severity="error">ERROR - Something went wrong!</Alert>
-              <Alert variant="filled" severity="success">Your name is been processed correctly, check out the result below!</Alert>
+              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                {loading === 0 && <CircularProgress />}
+                {loading === 1 && (
+                  <>
+                    {error === 0 && 
+                      <Alert variant="filled" severity="error">
+                        ERROR - Something went wrong!
+                      </Alert>}
+                    {error === 1 && (
+                      <Alert variant="filled" severity="success">
+                        Your name has been processed correctly. Check out the result below!
+                      </Alert>
+                    )}
+                  </>
+                )}
 
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Richiedi
-              </Button>
-
-              <Grid container sx={{backgroundColor: 'white', borderRadius: '16px', marginTop: '200px'}}>
-                {/* TO DO: add linkedin profiles */}
-                <Grid item xs>
-                  <Typography sx={{color: 'black', margin: '5px'}}>
-                    Made by: 
-                  </Typography>
-                </Grid>
-                <Grid item xs sx={{margin: '5px'}}>
-                  <Link href="#" variant="body2">
-                    Paolo
-                  </Link>
-                </Grid>
-                <Grid item xs sx={{margin: '5px'}}>
-                  <Link href="#" variant="body2">
-                    Carlo
-                  </Link>
-                </Grid>
-                <Grid item xs sx={{margin: '5px'}}>
-                  <Link href="#" variant="body2">
-                    Nicola
-                  </Link>
-                </Grid>
-                <Grid item xs sx={{margin: '5px'}}>
-                  <Link href="#" variant="body2">
-                    Francesco
-                  </Link>
-                </Grid>
-              </Grid>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  onSubmit={handleSubmit}
+                >
+                  Richiedi
+                </Button>
+              </Box>
             </Box>
+
+            <Grid container sx={{backgroundColor: 'white', position: "absolute", bottom: "0px"}}>
+              {/* TO DO: add linkedin profiles */}
+              <Grid item xs>
+                <Typography sx={{color: 'black', margin: '5px'}}>
+                  Made by: 
+                </Typography>
+              </Grid>
+              <Grid item xs sx={{margin: '5px'}}>
+                <Link href="https://www.linkedin.com/in/paolo-beci-919a28199/" variant="body2">
+                  Paolo
+                </Link>
+              </Grid>
+              <Grid item xs sx={{margin: '5px'}}>
+                <Link href="https://www.linkedin.com/in/bottarocarlo/" variant="body2">
+                  Carlo
+                </Link>
+              </Grid>
+              <Grid item xs sx={{margin: '5px'}}>
+                <Link href="https://www.linkedin.com/in/nicola-gutierrez/" variant="body2">
+                  Nicola
+                </Link>
+              </Grid>
+              <Grid item xs sx={{margin: '5px'}}>
+                <Link href="https://www.linkedin.com/in/francesco-audisio-8504582a/" variant="body2">
+                  Francesco
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Grid>
       </Grid>
