@@ -30,6 +30,7 @@ const theme = createTheme({
 export default function SignInSide() {
   const [loading, setLoading] = useState(null);   // 0: loading, 1: success
   const [error, setError] = useState(null);       // 0: no error, 1: error
+  const [message, setMessage] = useState(null);   // message to show
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,8 +38,25 @@ export default function SignInSide() {
     const inputValue = data.get('input');
     console.log('Input Value:', inputValue);
 
-    API.getScraper(inputValue)
+    fetch('http://127.0.0.1:5000/run-script', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: JSON.stringify({ input: inputValue }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response data
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle any errors
+        console.error('Error:', error);
+      });
   };
+
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -127,6 +145,8 @@ export default function SignInSide() {
                 </Button>
               </Box>
             </Box>
+
+            {message}
 
             <Grid container sx={{backgroundColor: 'white', position: "absolute", bottom: "0px"}}>
               {/* TO DO: add linkedin profiles */}
