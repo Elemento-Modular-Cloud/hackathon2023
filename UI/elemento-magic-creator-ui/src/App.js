@@ -31,8 +31,9 @@ export default function SignInSide() {
   const [loading, setLoading] = useState(null);   // 0: loading, 1: success
   const [error, setError] = useState(null);       // 0: no error, 1: error
   const [message, setMessage] = useState(null);   // message to show
+  const [response, setResponse] = useState(1); // response from API  1: success
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const inputValue = data.get('input');
@@ -57,6 +58,21 @@ export default function SignInSide() {
   };
 
   
+  //   setLoading(1);
+
+  //   try {
+  //     await API.getScraper(inputValue);
+
+  //     setLoading(0);
+  //     setResponse(1);
+  //   } catch (error) {
+  //     setLoading(0);
+  //     setError(1);
+  //     console.error('Error:', error);
+  //   }
+  // };
+
+  //  const handleReset = async (event) => { ... };
 
   return (
     <ThemeProvider theme={theme}>
@@ -134,7 +150,12 @@ export default function SignInSide() {
                     )}
                   </>
                 )}
+              </Box>
+            </Box>
 
+            {/* JSON box */}
+            {response === 0 && 
+              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <Button
                   type="submit"
                   variant="contained"
@@ -144,7 +165,12 @@ export default function SignInSide() {
                   Richiedi
                 </Button>
               </Box>
-            </Box>
+            }
+            {response === 1 && 
+              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                
+              </Box>
+            }
 
             {message}
 
