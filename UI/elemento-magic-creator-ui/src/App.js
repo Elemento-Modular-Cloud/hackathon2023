@@ -31,7 +31,7 @@ export default function SignInSide() {
   const [loading, setLoading] = useState(null);   // 0: loading, 1: success
   const [error, setError] = useState(null);       // 0: no error, 1: error
   const [message, setMessage] = useState(null);   // message to show
-  const [response, setResponse] = useState(1); // response from API  1: success
+  const [response, setResponse] = useState(0);    // response from API  1: success
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,6 +39,7 @@ export default function SignInSide() {
     const inputValue = data.get('input');
     console.log('Input Value:', inputValue);
 
+    setLoading(1);
     fetch('http://127.0.0.1:5000/run-script', {
       method: 'POST',
       headers: {
@@ -48,29 +49,17 @@ export default function SignInSide() {
     })
       .then(response => response.json())
       .then(data => {
-        // Handle the response data
+        setLoading(0);
+        setResponse(1);
+        setMessage(data);
         console.log(data);
       })
       .catch(error => {
-        // Handle any errors
+        setLoading(0);
+        setError(1);
         console.error('Error:', error);
       });
   };
-
-  
-  //   setLoading(1);
-
-  //   try {
-  //     await API.getScraper(inputValue);
-
-  //     setLoading(0);
-  //     setResponse(1);
-  //   } catch (error) {
-  //     setLoading(0);
-  //     setError(1);
-  //     console.error('Error:', error);
-  //   }
-  // };
 
   //  const handleReset = async (event) => { ... };
 
@@ -78,13 +67,13 @@ export default function SignInSide() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
-        <Grid 
-          item xs={12} 
-          component={Paper} 
-          elevation={6} 
+        <Grid
+          item xs={12}
+          component={Paper}
+          elevation={6}
           square
           sx={{
-            backgroundImage: 'url(back.jpg)', 
+            backgroundImage: 'url(back.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -110,7 +99,7 @@ export default function SignInSide() {
               }}
               src="elemento_logo.png"
             />
-            <Typography component="h1" variant="h3" sx={{margin: "20px"}}>
+            <Typography component="h1" variant="h3" sx={{ margin: "20px" }}>
               Elemento magic creator
             </Typography>
 
@@ -126,20 +115,20 @@ export default function SignInSide() {
                 name="input"
                 autoFocus
                 InputLabelProps={{
-                  style: { color: 'white' }, 
+                  style: { color: 'white' },
                 }}
                 inputProps={{
-                  style: { color: 'white' }, 
+                  style: { color: 'white' },
                   color: 'white',
-                  
+
                 }}
               />
 
-              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 {loading === 0 && <CircularProgress />}
                 {loading === 1 && (
                   <>
-                    {error === 0 && 
+                    {error === 0 &&
                       <Alert variant="filled" severity="error">
                         ERROR - Something went wrong!
                       </Alert>}
@@ -151,52 +140,52 @@ export default function SignInSide() {
                   </>
                 )}
               </Box>
+
+              {/* JSON box */}
+              {response === 0 &&
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                    onSubmit={handleSubmit}
+                  >
+                    Richiedi
+                  </Button>
+                </Box>
+              }
+              {response === 1 &&
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <Typography component="h1" variant="h6">
+                    {message}
+                  </Typography>
+                </Box>
+              }
             </Box>
 
-            {/* JSON box */}
-            {response === 0 && 
-              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  onSubmit={handleSubmit}
-                >
-                  Richiedi
-                </Button>
-              </Box>
-            }
-            {response === 1 && 
-              <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                
-              </Box>
-            }
-
-            {message}
-
-            <Grid container sx={{backgroundColor: 'white', position: "absolute", bottom: "0px"}}>
+            <Grid container sx={{ backgroundColor: 'white', position: "absolute", bottom: "0px" }}>
               {/* TO DO: add linkedin profiles */}
               <Grid item xs>
-                <Typography sx={{color: 'black', margin: '5px'}}>
-                  Made by: 
+                <Typography sx={{ color: 'black', margin: '5px' }}>
+                  Made by:
                 </Typography>
               </Grid>
-              <Grid item xs sx={{margin: '5px'}}>
+              <Grid item xs sx={{ margin: '5px' }}>
                 <Link href="https://www.linkedin.com/in/paolo-beci-919a28199/" variant="body2">
                   Paolo
                 </Link>
               </Grid>
-              <Grid item xs sx={{margin: '5px'}}>
+              <Grid item xs sx={{ margin: '5px' }}>
                 <Link href="https://www.linkedin.com/in/bottarocarlo/" variant="body2">
                   Carlo
                 </Link>
               </Grid>
-              <Grid item xs sx={{margin: '5px'}}>
+              <Grid item xs sx={{ margin: '5px' }}>
                 <Link href="https://www.linkedin.com/in/nicola-gutierrez/" variant="body2">
                   Nicola
                 </Link>
               </Grid>
-              <Grid item xs sx={{margin: '5px'}}>
+              <Grid item xs sx={{ margin: '5px' }}>
                 <Link href="https://www.linkedin.com/in/francesco-audisio-8504582a/" variant="body2">
                   Francesco
                 </Link>
