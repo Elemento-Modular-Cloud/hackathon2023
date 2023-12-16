@@ -2,10 +2,18 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 from bs4 import BeautifulSoup
+import googlesearch
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
 }
+def brand_search(search_input):
+        search_url = 'software requirements ' + search_input #+ ' site:' + self.search_input
+        result_list = []
+        result = googlesearch.search(search_url,num_results=100)
+        for a in result:
+            result_list.append(a)
+        return result_list[0]
 
 def ottenere_html_da_link(link):
     response = requests.get(link, headers=headers)
@@ -29,8 +37,10 @@ def run_script():
         data = request.get_json()
         program_name = data.get('program_name')
         print(program_name)
-
+        program_name = brand_search(program_name)
+        print(program_name)
         result = ottenere_html_da_link(program_name)
+
 
         return jsonify(result), 200
     except Exception as e:
