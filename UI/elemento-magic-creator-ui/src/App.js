@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import API from './API/api.js';
+import API from './API/api.js';  // TO DO: add API.js ;)
 
 // UI
 import Button from '@mui/material/Button';
@@ -29,7 +29,7 @@ const theme = createTheme({
 
 export default function SignInSide() {
   const [loading, setLoading] = useState(null);   // 0: loading, 1: success
-  const [error, setError] = useState(null);       // 0: no error, 1: error
+  const [error, setError] = useState(1);       // 1: no error, 0: error
   const [message, setMessage] = useState(null);   // message to show
   const [response, setResponse] = useState(0);    // response from API  1: success
 
@@ -39,29 +39,35 @@ export default function SignInSide() {
     const inputValue = data.get('input');
     console.log('Input Value:', inputValue);
 
-    setLoading(1);
+    setLoading(0);
     fetch('http://127.0.0.1:5000/run-script', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      params: JSON.stringify({ input: inputValue }),
+      body: JSON.stringify({ program_name: inputValue }),
     })
       .then(response => response.json())
       .then(data => {
-        setLoading(0);
+        setLoading(1);
         setResponse(1);
         setMessage(data);
-        console.log(data);
+        console.log('Success:', data);
       })
       .catch(error => {
-        setLoading(0);
+        setLoading(1);
         setError(1);
         console.error('Error:', error);
       });
   };
 
-  //  const handleReset = async (event) => { ... };
+  const handleReset = async (event) => { 
+    event.preventDefault();
+    setResponse(0);
+    setMessage(null);
+    setLoading(null);
+    setError(1);
+   };
 
   return (
     <ThemeProvider theme={theme}>
@@ -134,7 +140,7 @@ export default function SignInSide() {
                       </Alert>}
                     {error === 1 && (
                       <Alert variant="filled" severity="success">
-                        Your name has been processed correctly. Check out the result below!
+                        Your input has been processed correctly. Check out the result below!
                       </Alert>
                     )}
                   </>
@@ -157,8 +163,15 @@ export default function SignInSide() {
               {response === 1 &&
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Typography component="h1" variant="h6">
-                    {message}
+                    Prova
                   </Typography>
+                  <Button
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                    onSubmit={handleReset}
+                  >
+                    Riprova
+                  </Button>
                 </Box>
               }
             </Box>
