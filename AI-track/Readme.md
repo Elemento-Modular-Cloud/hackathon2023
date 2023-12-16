@@ -122,10 +122,6 @@ Accept: application/json
       "os_flavour": "windows11",
       "vm_name": "11",
       "creation_date": "%m/%d/%Y, %H:%M:%S",
-      "network_config":
-          {
-             "ipv4": "0.0.0.0"
-          }
    }
 }
 Example response:
