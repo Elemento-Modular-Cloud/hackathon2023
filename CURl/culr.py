@@ -14,7 +14,7 @@ def ottenere_html_da_link(link):
         # Utilizza BeautifulSoup per analizzare l'HTML e ottenere il contenuto del body
         soup = BeautifulSoup(response.content, 'html.parser')
         body_content = soup.body.contents  # ottieni il contenuto del body in formato "prettified"
-
+        body_content = str(body_content).replace("\"", "").replace("\'", "").replace("\n", " ").replace("\t", " ").replace("\r", " ").replace("  ", " ")
         return body_content
     else:
         print(f"Errore nella richiesta. Codice di stato: {response.status_code}")
