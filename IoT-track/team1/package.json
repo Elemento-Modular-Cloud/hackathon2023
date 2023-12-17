@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "lint": "standard --fix"
+  },
+  "dependencies": {
+    "apisauce": "^3.0.1",
+    "axios": "^1.6.2",
+    "express": "^4.18.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "@google-cloud/speech": "^6.1.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+}
