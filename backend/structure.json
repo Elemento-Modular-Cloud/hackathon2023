@@ -1,0 +1,23 @@
+{
+    "slots": 2,
+    "overprovision": 2,
+    "allowSMT": false,
+    "archs": ["X86_64"],
+    "flags": ["sse2"],
+    "min_frequency": 1.5,
+    "ramsize": 2048,
+    "reqECC": false,
+    "misc": {"os_family": "linux", "os_flavour": "ubuntu"},
+    "pci": [
+        {
+            "vendor": "10de",
+            "model": "24b0",
+            "quantity": 1
+        },
+        {
+            "vendor": "10de",
+            "model": "228b",
+            "quantity": 1
+        }
+    ]
+}
